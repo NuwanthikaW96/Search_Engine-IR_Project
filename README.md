@@ -4,17 +4,17 @@ This is a repository which contain sourcode for male cricketers search engine cr
 
 ## File Stucture
 
-Corpus
-    cricketers_En.txt : contain the data set in English language
-    cricketers_link.csv : contain the link of cricketers data
-    cricketers_Si.txt : contain the data set in Sinhala language
-    cricketers.json : contain the final data set
-template
-    search.html : contain the source code of UI
-app.py : Backend of the web app created using Flask
-createIndex.py : source code for create index
-scraper.py : Source code for the data scraper 
-search.py : elasticsearch quaries
+* Corpus
+    * cricketers_En.txt : contain the data set in English language
+    * cricketers_link.csv : contain the link of cricketers data
+    * cricketers_Si.txt : contain the data set in Sinhala language
+    * cricketers.json : contain the final data set
+* template
+    * search.html : contain the source code of UI
+* app.py : Backend of the web app created using Flask
+* createIndex.py : source code for create index
+* scraper.py : Source code for the data scraper 
+* search.py : elasticsearch quaries
 
 ## Starting the application
 
@@ -37,7 +37,7 @@ After instll the elasticsearch, start elasticsearch cluster on port 9200
 2. Name in Sinhala
 3. Full Name
 4. Country
-5.  Date of Birth
+5. Date of Birth
 6. Playing role
 7. Bating style
 8. Bowling style
@@ -49,6 +49,9 @@ After instll the elasticsearch, start elasticsearch cluster on port 9200
 In the scrapping process used BeautifulSoup library to scrap the data from HTML file. After srapping the data, It pass throught the text preproccing unit. To translate the data to englsh language used google translater API.After the post processing translated data create the final data set which in the cricketers.json file.
 
 ## Searching process
+
+### Indaxing
+For indexing the data  Elasticsearch is used and I have used the standard indexing methods provided in the Elasticsearch.
 
 ### Querying 
 * Used two types of queries.
