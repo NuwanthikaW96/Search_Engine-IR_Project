@@ -6,7 +6,7 @@ es = Elasticsearch()
 
 def search_text_multi_match_query(input,fields):
     print("multi_match_query")
-    result=es.search(index="male-cricketers",body={
+    result=es.search(index="male-cricketers-data",body={
         	"query": {
         		"multi_match": {
         			"query": input,
@@ -64,7 +64,7 @@ def search_text_multi_match_query(input,fields):
 def es_wildcard_query(fields,term1,term2):
     print("Wildcard Elasticsearch Query")
     word=term1+"*"+term2
-    result=es.search(index="male-cricketers",body={
+    result=es.search(index="male-cricketers-data",body={
         "query": {
             "query_string": {
                 "query": word,

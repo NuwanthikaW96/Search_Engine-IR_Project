@@ -3,7 +3,7 @@ from elasticsearch_dsl import Index
 import json,re
 # import queries
 client = Elasticsearch(HOST="http://localhost",PORT=9200)
-INDEX = 'male-cricketers'
+INDEX = 'male-cricketers-data'
 
 index = Index(INDEX,using=client)
 res = index.create()
