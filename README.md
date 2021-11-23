@@ -2,7 +2,7 @@
 
 This is a repository which contain sourcode for male cricketers search engine create using elastic search and python.
 
-## File Stucture
+## File Structure
 
 * Corpus
     * cricketers_En.txt : contain the data set in English language
