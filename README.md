@@ -13,6 +13,7 @@ This is a repository which contain sourcode for male cricketers search engine cr
     * search.html : contain the source code of UI
 * app.py : Backend of the web app created using Flask
 * createIndex.py : source code for create index
+* query.txt : example quries
 * scraper.py : Source code for the data scraper 
 * search.py : elasticsearch quaries
 
@@ -50,7 +51,7 @@ In the scrapping process used BeautifulSoup library to scrap the data from HTML 
 
 ## Searching process
 
-### Indaxing
+### Indexing
 For indexing the data  Elasticsearch is used and I have used the standard indexing methods provided in the Elasticsearch.
 
 ### Querying 
