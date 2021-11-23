@@ -1,4 +1,4 @@
-# Information Retrival Project - Male crcketers Search App 
+# Information Retrival Project - Male cricketers Search App 
 
 This is a repository which contain sourcode for male cricketers search engine create using elastic search and python.
 
