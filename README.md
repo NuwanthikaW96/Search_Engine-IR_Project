@@ -1,8 +1,6 @@
-# Information Retrival Project
+# Information Retrival Project - Male crcketers Search App 
 
-# Male crcketers Search App 
 This is a repository which contain sourcode for male cricketers search engine create using elastic search and python.
-
 
 ## File Stucture
 
@@ -51,3 +49,19 @@ After instll the elasticsearch, start elasticsearch cluster on port 9200
 In the scrapping process used BeautifulSoup library to scrap the data from HTML file. After srapping the data, It pass throught the text preproccing unit. To translate the data to englsh language used google translater API.After the post processing translated data create the final data set which in the cricketers.json file.
 
 ## Searching process
+
+### Querying 
+* Used two types of queries.
+    * Multi-match queries
+    * Wildcard queries
+* In mutli-match queries search will done in more than one field. Before done the searching part it preprocesses using some replacement and this give the best search for the query.
+* In wildcard query search will done for more than one fields and by giving uncomplete word and * it gives the best search.
+* Aggregation was integrated with queries to get aggregated data with the search result.
+
+### Advanced Features and Functionalities 
+
+* Search can be done using any number of field like cricketer name, batting style, etc and the result shows the best match- පිතිකරුවන්, තිලකරත්න ඩිල්ෂාන්
+* Search can be done using any number of fields like cricketer name, batting style, etc and the result shows the best match - බටහිර ඉන්දීය කොදෙව් වම්මත් පිතිකරු
+* Search can be done for the phases. - ශ්‍රී ලංකා දකුණත් පිතිකරුවන්
+* Cricketer’s name can be searched in both Sinhala and English – Dinesh Chandimal, දිනේෂ් චන්දිමාල්
+* Search can be done like this ශ්‍රී ල* (wildcard queries)
