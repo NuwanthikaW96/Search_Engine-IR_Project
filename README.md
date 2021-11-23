@@ -1,5 +1,3 @@
-# Search_Engine-IR_Project
-
 # Information Retrival Project
 
 # Male crcketers Search App 
@@ -51,3 +49,5 @@ After instll the elasticsearch, start elasticsearch cluster on port 9200
 ## Data scrping process
 
 In the scrapping process used BeautifulSoup library to scrap the data from HTML file. After srapping the data, It pass throught the text preproccing unit. To translate the data to englsh language used google translater API.After the post processing translated data create the final data set which in the cricketers.json file.
+
+## Searching process

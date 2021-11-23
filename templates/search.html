@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+ <meta charset=”utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel=”icon” href=”http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+ <link href=”//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css” rel=”stylesheet”>
+ <title>Cricketers Search</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <font size=6  style=color:blue;> ක්‍රිකට් ක්‍රීඩකයින් </font>
+        </center>
+        <br></br>
+        <form action="/" method="post">
+            <center>
+            <div class="row">
+                <div class="col-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg" name="input" value="{{input }}" placeholder="Search" autofocus>
+                    </div>
+                </div>
+                <div class="col-sm-4">    
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </div>
+            </center>
+            <br></br>
+            {%if cricketers%}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        {% for cricketer in cricketers["hits"]["hits"] %}
+                            <div class="card border-dark mb-3">
+                            <div class="card-body">
+                            {%for key, value in cricketer.items()%}
+                                <ul class="list-group list-group-flush">
+                                    {% if key == "_source" %}
+                                        {% for key, value in value.items() %}
+                                            {%if key =="nameEn"%}
+                                                <li class="list-group-item">Name in English : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="nameSi"%}
+                                                <li class="list-group-item">Name in Sinhala : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="fullName"%}
+                                                <li class="list-group-item">Full Name  : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="country"%}
+                                                <li class="list-group-item">Country : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="dateOfBirth"%}
+                                                <li class="list-group-item">Date of Birth : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="playingRole"%}
+                                                <li class="list-group-item">Playing Role : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="bowlingStyle"%}
+                                                <li class="list-group-item">Bowling style: {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="battingStyle"%}
+                                                <li class="list-group-item">Batting Style : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="teams"%}
+                                                <li class="list-group-item">Teams : {{ value}}</li>
+                                            {%endif%}
+                                            {%if key =="profile"%}
+                                                <li class="list-group-item">Profile : {{ value}}</li>
+                                            {%endif%}
+                                        {% endfor%}
+                                    {% endif %}
+                                </ul>
+                            {% endfor %}
+                            </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                     <div class="card border-dark mb-3">
+                            <div class="card-body">
+                        {% for each in cricketers["aggregations"] %}
+                       
+                            {%if each=="Country"%}
+                                <br></br>
+                                Country
+                                {%for key in cricketers["aggregations"]["Country"]["buckets"]%}
+                                <ul class="list-group list-group-flush">
+                                    {%for key,value in key.items()%}
+                                        {{value}}
+                                    {%endfor%}
+                                </ul>
+                                {%endfor%}
+                            {%endif%}
+                            {%if each=="Playing Role"%}
+                                <br></br>
+                                Playing Role
+                                {%for key in cricketers["aggregations"]["Playing Role"]["buckets"]%}
+                                <ul class="list-group list-group-flush">
+                                    {%for key,value in key.items()%}
+                                        {{value}}
+                                    {%endfor%}
+                                </ul>
+                                {%endfor%}
+                            {%endif%}
+                            {%if each=="Batting Style"%}
+                                <br></br>
+                                Batting Style
+                                {%for key in cricketers["aggregations"]["Batting Style"]["buckets"]%}
+                                <ul class="list-group list-group-flush">
+                                    {%for key,value in key.items()%}
+                                        {%if value ==" "%}
+                                           {{fff}}
+                                        {%else%}
+                                            {{value}}
+                                        {% endif %}
+                                    {%endfor%}
+                                </ul>
+                                {%endfor%}
+                            {%endif%}
+                            {%if each=="Bowling Style"%}
+        
+                                Bowling Style
+                                {%for key in cricketers["aggregations"]["Bowling Style"]["buckets"]%}
+                                <ul class="list-group list-group-flush">
+                                    {%for key,value in key.items()%}
+                                         {%if value ==' '%}
+                                           {{fff}}
+                                        {%else%}
+                                            {{value}}
+                                        {% endif %}
+                                    {%endfor%}
+                                </ul>
+                                {%endfor%}
+                            {%endif%}
+                            
+                        {%endfor%}
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+    
+        </form>
+        <br><br>
+    </div>
+ </body>
+</html>
